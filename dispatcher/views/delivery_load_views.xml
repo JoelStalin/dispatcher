@@ -1,0 +1,63 @@
+
+<odoo>
+    <record id="view_dispatcher_load_form" model="ir.ui.view">
+        <field name="name">dispatcher.load.form</field>
+        <field name="model">dispatcher.load</field>
+        <field name="arch" type="xml">
+            <form string="dispatcher Load">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="load_date"/>
+                        <field name="dispatcher_order_ids" widget="many2many_tags"/>
+                        <field name="total_weight" readonly="1"/>
+                        <field name="total_distance" readonly="1"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="dispatcher Routes">
+                            <field name="route_ids">
+                                <tree string="Routes">
+                                    <field name="name"/>
+                                    <!-- <field name="start_location" readonly="1"/> -->
+                                    <!-- <field name="end_location" readonly="1"/> -->
+                                    <field name="distance"/>
+                                    <field name="driver_name"/>
+                                    <!-- <field name="vehicle_number"/> -->
+                                </tree>
+                                <form string="Route">
+                                    <group>
+                                        <field name="name"/>
+                                        <!-- <field name="start_location" readonly="1"/> -->
+                                        <!-- <field name="end_location" readonly="1"/> -->
+                                        <field name="distance"/>
+                                        <field name="driver_name" domain="[('is_driver', '=', True)]"/>
+                                        <!-- <field name="vehicle_number"/> -->
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <!-- <page string="Tracking Updates">
+                            <field name="tracking_ids">
+                                <tree string="Tracking">
+                                    <field name="tracking_date"/>
+                                    <field name="location"/>
+                                    <field name="status"/>
+                                    <field name="note"/>
+                                </tree>
+                                <form string="Tracking Update">
+                                    <group>
+                                        <field name="tracking_date"/>
+                                        <field name="location"/>
+                                        <field name="status"/>
+                                        <field name="note"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page> -->
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

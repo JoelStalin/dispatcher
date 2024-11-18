@@ -1,0 +1,91 @@
+<odoo>
+     <record id="view_dispatcher_load_form" model="ir.ui.view">
+        <field name="name">dispatcher.load.form</field>
+        <field name="model">dispatcher.load</field>
+        <field name="arch" type="xml">
+            <form string="Dispatcher Load">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="load_date"/>
+                        <field name="order_ids" widget="many2many_tags" domain="[('dispatcher_load_id', '=', False)]"/>
+                        <field name="total_weight" readonly="1"/>
+                        <field name="total_distance" readonly="1"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Dispatcher Routes">
+                            <field name="route_ids">
+                                <tree string="Routes">
+                                    <field name="name"/>
+                                    <field name="start_location" readonly="1"/>
+                                    <field name="end_location" readonly="1"/>
+                                    <field name="distance"/>
+                                    <field name="driver_name"/>
+                                </tree>
+                                <form string="Route">
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="distance"/>
+                                        <field name="driver_name" domain="[('is_driver', '=', True)]"/>
+                                    </group>
+                                    <notebook>
+                                        <page string="Stop Locations">
+                                            <field name="stop_locations">
+                                                <tree string="Stop Locations">
+                                                    <field name="stop_number" readonly="1"/>
+                                                    <field name="location_id"/>
+                                                    <field name="address_id"/>
+                                                    <field name="street" readonly="1"/>
+                                                    <field name="city" readonly="1"/>
+                                                    <field name="country_id" readonly="1"/>
+                                                </tree>
+                                                <form string="Stop Location">
+                                                    <group>
+                                                        <field name="location_id"/>
+                                                        <field name="stop_number" readonly="1"/>
+                                                        <field name="address_id"/>
+                                                        <field name="street" readonly="1"/>
+                                                        <field name="city" readonly="1"/>
+                                                        <field name="country_id" readonly="1"/>
+                                                    </group>
+                                                </form>
+                                            </field>
+                                        </page>
+                                    </notebook>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Tracking Updates">
+                            <field name="tracking_ids">
+                                <tree string="Tracking">
+                                    <field name="tracking_date"/>
+                                    <field name="location"/>
+                                    <field name="status"/>
+                                    <field name="note"/>
+                                </tree>
+                                <form string="Tracking Update">
+                                    <group>
+                                        <field name="tracking_date"/>
+                                        <field name="location"/>
+                                        <field name="status"/>
+                                        <field name="note"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dispatcher_load" model="ir.actions.act_window">
+        <field name="name">Dispatcher Orders</field>
+        <field name="res_model">dispatcher.load</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_dispatcher_root" name="Dispatching" sequence="10"/>
+    <menuitem id="menu_dispatcher_load" name="Dispatcher Orders" parent="menu_dispatcher_root" action="action_dispatcher_load" sequence="10"/>
+</odoo>

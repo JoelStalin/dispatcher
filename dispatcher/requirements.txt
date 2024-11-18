@@ -1,0 +1,4 @@
+# Lista de dependencias del módulo
+
+# Ejemplo de dependencia
+# odoo

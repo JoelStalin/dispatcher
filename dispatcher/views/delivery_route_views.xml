@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_dispatcher_route_form" model="ir.ui.view">
+        <field name="name">dispatcher.route.form</field>
+        <field name="model">dispatcher.route</field>
+        <field name="arch" type="xml">
+            <form string="dispatcher Route">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="load_id"/>
+                        <field name="stop_locations" />
+                        <field name="distance"/>
+                        <field name="driver_name"/>
+                        <!-- <field name="vehicle_number"/> -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_partner_form_inherit_driver" model="ir.ui.view">
+    <field name="name">res.partner.form.driver</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <sheet>
+            <group>
+                <field name="is_driver"/>
+            </group>
+        </sheet>
+    </field>
+    </record>
+
+
+    <record id="view_dispatcher_route_stop_form" model="ir.ui.view">
+        <field name="name">dispatcher.route.stop.form</field>
+        <field name="model">dispatcher.route.stop</field>
+        <field name="arch" type="xml">
+            <form string="Route Stop">
+                <sheet>
+                    <group>
+                        <field name="stop_number"/>
+                        <field name="location_id"/>
+                        <!-- <field name="address_id"/> -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

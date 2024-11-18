@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+
+        <record id="demo_delivery_load_1" model="delivery.load">
+            <field name="name">Load 1</field>
+            <field name="state">draft</field>
+        </record>
+        
+        <record id="demo_delivery_load_2" model="delivery.load">
+            <field name="name">Load 2</field>
+            <field name="state">draft</field>
+        </record>
+
+
+        <record id="demo_delivery_route_1" model="delivery.route">
+            <field name="name">Route A</field>
+            <field name="load_id" ref="demo_delivery_load_1"/>
+            <field name="distance">20.0</field>
+            <field name="driver_name">Alice Smith</field>
+        </record>
+
+        <record id="demo_delivery_route_2" model="delivery.route">
+            <field name="name">Route B</field>
+            <field name="load_id" ref="demo_delivery_load_2"/>
+            <field name="distance">30.0</field>
+            <field name="driver_name">Bob Johnson</field>
+        </record>
+
+   
+        <record id="demo_delivery_route_stop_1" model="delivery.route.stop">
+            <field name="route_id" ref="demo_delivery_route_1"/>
+            <field name="stop_number">1</field>
+            <field name="location_id" ref="stock.stock_location_stock"/> 
+            <field name="address">Warehouse 1</field>
+        </record>
+
+        <record id="demo_delivery_route_stop_2" model="delivery.route.stop">
+            <field name="route_id" ref="demo_delivery_route_1"/>
+            <field name="stop_number">2</field>
+            <field name="location_id" ref="stock.stock_location_stock"/> 
+            <field name="address">Customer Location 1</field>
+        </record>
+
+        <record id="demo_delivery_route_stop_3" model="delivery.route.stop">
+            <field name="route_id" ref="demo_delivery_route_2"/>
+            <field name="stop_number">1</field>
+            <field name="location_id" ref="stock.stock_location_stock"/> 
+            <field name="address">Warehouse 2</field>
+        </record>
+
+        <record id="demo_delivery_route_stop_4" model="delivery.route.stop">
+            <field name="route_id" ref="demo_delivery_route_2"/>
+            <field name="stop_number">2</field>
+            <field name="location_id" ref="stock.stock_location_stock"/> 
+            <field name="address">Customer Location 2</field>
+        </record>
+
+        <record id="demo_delivery_tracking_1" model="delivery.tracking">
+            <field name="load_id" ref="demo_delivery_load_1"/>
+            <field name="latitude">34.0522</field>
+            <field name="longitude">-118.2437</field>
+            <field name="timestamp">2024-10-25 10:00:00</field>
+        </record>
+
+        <record id="demo_delivery_tracking_2" model="delivery.tracking">
+            <field name="load_id" ref="demo_delivery_load_2"/>
+            <field name="latitude">34.0522</field>
+            <field name="longitude">-118.2437</field>
+            <field name="timestamp">2024-10-25 10:30:00</field>
+        </record>
+
+    </data>
+</odoo>

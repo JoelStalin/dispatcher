@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dispatcher_load_user,access_dispatcher_load_user,model_dispatcher_load,,1,1,1,1
+access_dispatcher_route_user,access_dispatcher_route_user,model_dispatcher_route,,1,1,1,1
+access_dispatcher_tracking_user,access_dispatcher_tracking_user,model_dispatcher_tracking,,1,1,1,1
+access_dispatcher_route_stop_user,access_dispatcher_route_stop_user,model_dispatcher_route_stop,,1,1,1,1

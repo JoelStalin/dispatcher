@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="dispatcher_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <!-- Report Content for dispatcher -->
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <report 
+        id="dispatcher_report"
+        model="dispatcher.model"
+        string="Sample Report"
+        report_type="qweb-pdf"
+        name="dispatcher_report_template"
+        file="dispatcher_report_template"
+        attachment_use="False"
+    />
+</odoo>
